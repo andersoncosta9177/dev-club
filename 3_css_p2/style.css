@@ -1,0 +1,130 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* .div-pai{
+   height: 350px;
+   width: 350px;
+   background-color: red;
+}
+
+.div-filho{
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+
+} */
+/* input{
+    border: 1px solid red;
+    color: blue;
+}
+
+
+input::placeholder{
+    color: blue;
+}
+p{
+    color: red;
+}
+p::first-letter{
+    color: purple;
+}
+
+p::first-line{
+    color: chartreuse;
+} */
+
+/* a{
+    color: rgb(39, 29, 29);
+}
+a::before{
+    content: "❤";
+}
+
+a::after{
+    content: "✔";
+} */
+
+/* a{
+    font-size: 23px;
+}
+a:visited{
+    color: red;
+
+}
+a:hover{
+    color: chartreuse;
+} */
+
+/* input:checked{
+    width: 100px;
+    height: 100px;
+   
+} */
+
+/* input:focus{
+    width: 100%;
+    height: 30px;
+    outline: none;
+    background-color: #ddd;
+    border: none;
+} */
+
+/* 
+.container{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+} */
+
+/* 
+li:first-child{
+    color: red;
+}
+li:last-child{
+    color: purple;
+}
+
+span:first-of-type{
+    color: blue;
+}
+
+span:nth-last-child(2){
+    font-size: 20px;
+} */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* div{
+    width: 300px;
+    height: 300px;
+    background-color: red;
+}
+
+
+@media screen and (min-width: 600px) and (orientation:landscape){
+    div{
+        background-color: blue;
+        transition: .8s;
+        border-radius: 20px;
+        width: 200px;
+        height: 200px;
+    }
+}
+ */
+
+
+ div{
+    height: calc(100vh - 200px);
+    width: calc((50vh + 200px) / 2 );
+    background-color: red;
+}
