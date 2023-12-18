@@ -23,11 +23,29 @@ app.get('/users', (req, res) => {
 
 
 app.post("/users", (req, res) => {
-    const { name, age } = req.body
+
+
+    try {
+        const { name, age } = req.body
     const user = { id: uuid.v4(), name, age }
     users.push(user)
     return res.status(201).json(user)
+        
+
+    } catch (error) {
+        return res.status(500).json({error: 'Erro interno do servidor'})
+        
+    } finally{
+        console.log("tudo corretamente!")
+    }
+    
 })
+
+
+
+
+
+
 
 app.put("/users/:id", (req, res) => {
     const { id } = req.params
