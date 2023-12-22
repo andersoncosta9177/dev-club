@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-
+import React, { useState, useRef, useEffect} from "react";
+import axios from 'axios'
 import { Container, Image, ContainerItens, H1, InputLabel, Input, Button, User } from "./style";
 import People from './assets/peoples.svg'
 import Arrow from './assets/seta.svg'
@@ -9,30 +9,43 @@ import Trash from './assets/18297 4.png'
 const App = () => {
 
   const [users, setUsers] = useState([])
-const inputName = useRef()
-const inputAge = useRef()
+  const inputName = useRef()
+  const inputAge = useRef()
 
 
 
-function addNewUser() {
+  async function addNewUser() {
 
-  setUsers([...users, { id: Math.random(), name: inputName.current.value, age: inputAge.current.value }]);
+    //     const {data:newUser} = await axios.post("http://localhost:3001/users", {
+    //       name: inputName.current.value,
+    //       age: inputAge.current.value
+    //     })
 
+    // setUsers([
+    //   ...users, newUser
+    // ])
 
-
-
-}
-
-
-
-function deletar(id){
-const newUser = users.filter(user =>user.id !== id)
-setUsers( newUser)
+  }
 
 
-}
+  useEffect( ()=>{
+    async function fetchUsers(){
+      const { data: newUsers } =  await  axios.get("http://localhost:3001/users")
+      setUsers(newUsers)
+
+    }
+fetchUsers()
+
+  },[])
 
 
+  async function deletar(id) {
+    await axios.delete(`http://localhost:3001/users/${id}`)
+    const newUser = users.filter(user => user.id !== id)
+    setUsers(newUser)
+
+
+  }
 
   return (
     <Container >
@@ -43,22 +56,22 @@ setUsers( newUser)
         <Input ref={inputName} placeholder="Digite seu nome" />
 
         <InputLabel>Idade</InputLabel>
-        <Input ref={inputAge}  placeholder="Digite sua idade" />
+        <Input ref={inputAge} placeholder="Digite sua idade" />
 
         <Button onClick={addNewUser}>Cadastrar  <img src={Arrow} alt="seta" /></Button>
 
 
         <ul>
           {users.map(user => (
-            <User>
+            <User key={user.id}>
               <p>{user.name}</p>
               <p>{user.age}</p>
-              <button onClick={()=>deletar(user.id)}> <img src={Trash} alt="lixeira" /></button>
+              <button onClick={() => deletar(user.id)}> <img src={Trash} alt="lixeira" /></button>
 
             </User>
           ))
           }
-        </ul>
+        </ul> 
 
 
 

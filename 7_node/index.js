@@ -1,7 +1,10 @@
 const express = require("express")
 const app = express()
+const  cors  =  require("cors")
+
 const uuid = require("uuid")
 app.use(express.json())
+app.use(cors())
 
 
 
@@ -48,8 +51,9 @@ app.post("/users", (req, res) => {
 
 
 app.put("/users/:id", (req, res) => {
-    const { id } = req.params
     const { name, age } = req.body
+    const { id } = req.params
+
 
     const updatesUsers = { id, name, age }
     const index = users.findIndex(user => user.id === id)
@@ -84,6 +88,6 @@ app.delete('/users/:id', (req, res) => {
 
 
 
-app.listen(1337, () => {
+app.listen(3001, () => {
     console.log("Rodando na porta 1337 ✔")
 })
