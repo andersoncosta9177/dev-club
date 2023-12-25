@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
 import { Container, Image, ContainerItens, H1, Button, User } from "./style";
 import Avatar from  "../../assets/peoples2.svg"
 import Arrow from '../../assets/seta.svg'
 import Trash from '../../assets/trash.png'
-
+import {useNavigate}  from 'react-router-dom'
 
 const Users = () => {
 
   const [users, setUsers] = useState([])
 
-  
+  const navigate = useNavigate()
+
   useEffect(() => {
     async function fetchUsers() {
       const { data: newUsers } = await axios.get("http://localhost:3001/users")
@@ -53,7 +53,7 @@ const Users = () => {
           }
         </ul>
 
-        <Button to="/"> <img src={Arrow} alt="seta" />Voltar  </Button>
+        <Button onClick={()=>navigate("/")} > <img src={Arrow} alt="seta" />Voltar  </Button>
        
 
       </ContainerItens>

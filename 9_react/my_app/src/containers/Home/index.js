@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Container, Image, ContainerItens, H1, InputLabel, Input, Button } from "./style";
 import People from  "../../assets/peoples.svg"
 import Arrow from '../../assets/seta.svg'
+import {useNavigate } from 'react-router-dom'
 
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
   const [users, setUsers] = useState([])
   const inputName = useRef()
   const inputAge = useRef()
+  const navigate = useNavigate()
 
 
 
@@ -28,6 +30,8 @@ const Home = () => {
       ...users, newUser
     ])
 
+    navigate("/usuarios")
+
   }
 
   return (
@@ -41,7 +45,7 @@ const Home = () => {
         <InputLabel>Idade</InputLabel>
         <Input ref={inputAge} placeholder="Digite sua idade" />
 
-        <Button to="/usuarios" onClick={addNewUser}>Cadastrar  <img src={Arrow} alt="seta" /></Button>
+        <Button  onClick={addNewUser}>Cadastrar  <img src={Arrow} alt="seta" /></Button>
 
 
 
