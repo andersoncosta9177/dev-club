@@ -1,10 +1,12 @@
 import React, { useState, useRef } from "react";
 import axios from 'axios'
-import { Container, Image, ContainerItens, H1, InputLabel, Input, Button } from "./style";
+import { Container, Image, InputLabel, Input } from "./style";
 import People from  "../../assets/peoples.svg"
 import Arrow from '../../assets/seta.svg'
 import {useNavigate } from 'react-router-dom'
-
+import H1 from '../../containers/Title'
+import ContainerItens from "../../containers/ContainerItens";
+import Button from "../../containers/Button";
 
 const Home = () => {
 
@@ -38,7 +40,7 @@ const Home = () => {
     <Container >
       <Image src={People} />
       <ContainerItens>
-        <H1>Olá</H1>
+        <H1 title="Cadastro"></H1>
         <InputLabel>Nome</InputLabel>
         <Input ref={inputName} placeholder="Digite seu nome" />
 
